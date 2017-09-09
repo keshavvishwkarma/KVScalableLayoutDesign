@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScalableLayoutDesign" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KVScalableLayoutDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,14 +23,41 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnt-wg-isO">
                                 <rect key="frame" x="40" y="107" width="295" height="148"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="asgdbjkagsjdgasj" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ix4-fU-3tH">
+                                        <rect key="frame" x="5" y="54" width="285" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="hub-bw-BNq"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.63529411759999999" blue="0.039215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="ix4-fU-3tH" firstAttribute="centerX" secondItem="dnt-wg-isO" secondAttribute="centerX" id="3xk-GQ-n1o"/>
+                                    <constraint firstItem="ix4-fU-3tH" firstAttribute="centerY" secondItem="dnt-wg-isO" secondAttribute="centerY" id="GFF-gK-6ng"/>
+                                    <constraint firstAttribute="trailing" secondItem="ix4-fU-3tH" secondAttribute="trailing" constant="5" id="NHs-Hs-PeG"/>
                                     <constraint firstAttribute="height" constant="148" id="wXi-fq-adp"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTa-eb-jBG">
                                 <rect key="frame" x="40" y="357" width="295" height="148"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saahkjsld kladsglhf sdlhg flshdf sdf sdahgflsdh fjsadghghsdfgh sdalhgfs " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjF-mB-clJ">
+                                        <rect key="frame" x="4" y="67" width="286" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.1960784314" green="0.72156862749999995" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="YjF-mB-clJ" firstAttribute="centerX" secondItem="tTa-eb-jBG" secondAttribute="centerX" id="HM1-c5-PW7"/>
+                                    <constraint firstItem="YjF-mB-clJ" firstAttribute="centerY" secondItem="tTa-eb-jBG" secondAttribute="centerY" id="JlN-VB-1CT"/>
+                                    <constraint firstAttribute="trailing" secondItem="YjF-mB-clJ" secondAttribute="trailing" constant="5" id="be3-9w-s6d"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57R-NR-RRy">
                                 <rect key="frame" x="40" y="586" width="295" height="61"/>

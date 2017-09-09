@@ -16,9 +16,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print(self.view.subviews.count.description);
+        DefaultLogger.logger.log(self.view.subviews.count.description);
         
-        self.view.scaledLayoutDesignBasedOn(designedScreen: .iPhone6)
+        self.view.scaledLayoutDesign()
+        // self.view.scaledLayoutDesign(from: .iPhone6)
         
         //  let button = UIButton.prepareAutoLayoutView()
         //  button.backgroundColor = UIColor.redColor()
