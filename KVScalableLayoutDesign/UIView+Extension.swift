@@ -21,6 +21,7 @@ extension UIView {
     public func scaledFontSize(from srcScreen: Screen = .iPhone6) {
         scaledFont(by: srcScreen.scaledWidth( value: 1))
     }
+    
 }
 
 extension UIView {
@@ -61,6 +62,46 @@ extension UIFont {
     fileprivate func scaledFont(by ratio: CGFloat) -> UIFont {
         return UIFont(name: fontName, size: pointSize * ratio)!
     }
+}
+
+extension NSAttributedString
+{
+    public func scaledContent(from srcScreen: Screen = .iPhone6) -> NSAttributedString {
+        return scaledContent(by: srcScreen.scaledWidth( value: 1))
+    }
+    
+    public func scaledContent(by ratio: CGFloat) -> NSAttributedString {
+        let mutable = mutableCopy() as! NSMutableAttributedString
+        mutable.scaledMutableContent(by: ratio)
+        return mutable
+    }
+    
+}
+
+extension NSMutableAttributedString
+{
+    public func scaledContent(from srcScreen: Screen = .iPhone6) {
+        return scaledMutableContent(by: srcScreen.scaledWidth( value: 1))
+    }
+    
+    public func scaledMutableContent(by ratio: CGFloat) {
+        beginEditing()
+        enumerateAttributes(in: NSRange(location: 0, length: length), options: []) { (attributes, range, _) in
+            var styleAttributes = attributes
+            if let font = styleAttributes[NSFontAttributeName] as? UIFont {
+                self.removeAttribute(NSFontAttributeName, range: range)
+                self.addAttribute(NSFontAttributeName, value: font.scaledFont(by: ratio), range: range)
+            }
+            
+            if let textAttachment = styleAttributes[NSAttachmentAttributeName] as? NSTextAttachment {
+                guard let attachedImage : UIImage  = textAttachment.image else { return }
+                let scaledImage = attachedImage.resize(toWidth: CGFloat(attachedImage.size.width*ratio))
+                textAttachment.image = scaledImage
+            }
+        }
+        self.endEditing()
+    }
+    
 }
 
 extension UIView
@@ -115,4 +156,38 @@ extension UIView
         }
     }
     
+}
+
+
+extension UIImage {
+
+    /// Resizes an image based on a given width.
+    open func resize(toWidth w: CGFloat) -> UIImage? {
+        return internalResize(toWidth: w)
+    }
+    
+    /// Resizes an image based on a given height.
+    open func resize(toHeight h: CGFloat) -> UIImage? {
+        return internalResize(toHeight: h)
+    }
+    
+    private func internalResize(toWidth tw: CGFloat = 0, toHeight th: CGFloat = 0) -> UIImage? {
+        var w: CGFloat?
+        var h: CGFloat?
+        
+        if 0 < tw {
+            h = size.height * tw / size.width
+        } else if 0 < th {
+            w = size.width * th / size.height
+        }
+        
+        let g: UIImage?
+        let t: CGRect = CGRect(x: 0, y: 0, width: w ?? tw, height: h ?? th)
+        UIGraphicsBeginImageContextWithOptions(t.size, false, UIScreen.main.scale)
+        draw(in: t, blendMode: .normal, alpha: 1)
+        g = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return g
+    }
 }
