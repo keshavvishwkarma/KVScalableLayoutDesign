@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B0FF8121F704A8000A64650 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FF80E1F704A8000A64650 /* UIScreen+Extension.swift */; };
+		6B0FF8141F704A8000A64650 /* UIView+ScalableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FF8101F704A8000A64650 /* UIView+ScalableContent.swift */; };
+		6B0FF8151F704A8000A64650 /* UIView+ScalableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0FF8111F704A8000A64650 /* UIView+ScalableLayout.swift */; };
 		6B3DB7071F215F5A00014076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DB7061F215F5A00014076 /* AppDelegate.swift */; };
 		6B3DB7091F215F5A00014076 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DB7081F215F5A00014076 /* ViewController.swift */; };
 		6B3DB70C1F215F5A00014076 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DB70A1F215F5A00014076 /* Main.storyboard */; };
 		6B3DB70E1F215F5A00014076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DB70D1F215F5A00014076 /* Assets.xcassets */; };
 		6B3DB7111F215F5A00014076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DB70F1F215F5A00014076 /* LaunchScreen.storyboard */; };
-		6B3DB71A1F215F6F00014076 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DB7181F215F6F00014076 /* UIScreen+Extension.swift */; };
-		6B3DB71B1F215F6F00014076 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DB7191F215F6F00014076 /* UIView+Extension.swift */; };
 		6BA905A11F6434B400375815 /* KVLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA905A01F6434B400375815 /* KVLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B0FF80E1F704A8000A64650 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		6B0FF8101F704A8000A64650 /* UIView+ScalableContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ScalableContent.swift"; sourceTree = "<group>"; };
+		6B0FF8111F704A8000A64650 /* UIView+ScalableLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ScalableLayout.swift"; sourceTree = "<group>"; };
 		6B3DB7031F215F5A00014076 /* KVScalableLayoutDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVScalableLayoutDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3DB7061F215F5A00014076 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B3DB7081F215F5A00014076 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,8 +29,6 @@
 		6B3DB70D1F215F5A00014076 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3DB7101F215F5A00014076 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3DB7121F215F5A00014076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B3DB7181F215F6F00014076 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
-		6B3DB7191F215F6F00014076 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		6BA905A01F6434B400375815 /* KVLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,8 +76,9 @@
 		6B3DB71C1F215F7900014076 /* Helper-Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6B3DB7181F215F6F00014076 /* UIScreen+Extension.swift */,
-				6B3DB7191F215F6F00014076 /* UIView+Extension.swift */,
+				6B0FF80E1F704A8000A64650 /* UIScreen+Extension.swift */,
+				6B0FF8111F704A8000A64650 /* UIView+ScalableLayout.swift */,
+				6B0FF8101F704A8000A64650 /* UIView+ScalableContent.swift */,
 				6BA905A01F6434B400375815 /* KVLogger.swift */,
 			);
 			name = "Helper-Classes";
@@ -154,10 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B3DB7091F215F5A00014076 /* ViewController.swift in Sources */,
+				6B0FF8141F704A8000A64650 /* UIView+ScalableContent.swift in Sources */,
+				6B0FF8121F704A8000A64650 /* UIScreen+Extension.swift in Sources */,
+				6B0FF8151F704A8000A64650 /* UIView+ScalableLayout.swift in Sources */,
 				6B3DB7071F215F5A00014076 /* AppDelegate.swift in Sources */,
 				6BA905A11F6434B400375815 /* KVLogger.swift in Sources */,
-				6B3DB71B1F215F6F00014076 /* UIView+Extension.swift in Sources */,
-				6B3DB71A1F215F6F00014076 /* UIScreen+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
