@@ -50,10 +50,10 @@ public extension Logable {
     }
 }
 
-struct DefaultLogger: Logable {
-    static var logger: Logable = DefaultLogger()
-    static var type: String = "KVLog"
-    var log = false
+public struct DefaultLogger: Logable {
+    public static var logger: Logable = DefaultLogger()
+    public static var type: String = "KVLog"
+    public var log = false
 }
 
 

@@ -13,12 +13,14 @@ import UIKit
 extension UIView {
     
     public func scaledLayoutDesign(from srcScreen: Screen = .iPhone6) {
-        let ratio = srcScreen.scaledWidth( value: 1)
+        let ratio : CGFloat = srcScreen.scaledWidth()
         if ratio == 1.0 {
             return
         }
-        self.traceConstraint(basedOn: srcScreen)
+
+        traceConstraint(basedOn: srcScreen)
         scaledContent(by: ratio)
+        
         for v in subviews {
             v.scaledLayoutDesign(from: srcScreen)
         }

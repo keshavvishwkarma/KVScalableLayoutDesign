@@ -33,15 +33,15 @@ extension Screen
         }
     }
     
-    public func scaledWidth( value:CGFloat, destScreen:Screen = .iPhoneScreen(UIScreen.size))->CGFloat {
+    public func scaledWidth( value:CGFloat = 1.0, destScreen:Screen = .iPhoneScreen(UIScreen.size))->CGFloat {
         let widthFraction = destScreen.size.width / size.width
-        DefaultLogger.logger.log("widthFraction: " + widthFraction.description + " widthscale: " + (value*widthFraction).description )
+        DefaultLogger.logger.log("WF: " + widthFraction.description + " WS: " + (value*widthFraction).description )
         return value*widthFraction
     }
     
-    public func scaledHeight( value:CGFloat, destScreen:Screen = .iPhoneScreen(UIScreen.size))->CGFloat {
+    public func scaledHeight( value:CGFloat = 1.0, destScreen:Screen = .iPhoneScreen(UIScreen.size))->CGFloat {
         let heightFraction = destScreen.size.height / size.height
-        DefaultLogger.logger.log("heightFraction: " + heightFraction.description + " heightScale: " + (value*heightFraction).description )
+        DefaultLogger.logger.log("HF: " + heightFraction.description + " HS: " + (value*heightFraction).description )
         return value*heightFraction
     }
     

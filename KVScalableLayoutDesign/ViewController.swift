@@ -7,38 +7,28 @@
 //
 
 import UIKit
-//import KVConstraintKit
+import KVScalableLayoutKit
 
 class ViewController: UIViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        DefaultLogger.logger.log = !true
         DefaultLogger.logger.log(self.view.subviews.count.description);
         
-        self.view.scaledLayoutDesign()
-        // self.view.scaledLayoutDesign(from: .iPhone6)
-        
-        //  let button = UIButton.prepareAutoLayoutView()
-        //  button.backgroundColor = UIColor.redColor()
-        //  view.addSubview(button)
-        //
-        //  button +== [.CenterX, .CenterY]
-        //  button +== (.Width, 280)
-        //  button +== (.AspectRatio, 0)
-        //
-        //  print((button <- .Width)?.constant)
-        //  print((button <- .Height)?.constant)
+        self.view.scaledLayoutDesign() // by defualt iPhone6
+//        self.view.scaledLayoutDesign(from: .iPhone8)
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
+extension UISegmentedControl {
+    
+    open override func scaledContent(by ratio: CGFloat) {
+        DefaultLogger.logger.log(#function)
+    }
+    
+}

@@ -6,26 +6,25 @@
 //  Copyright © 2017 Keshav. All rights reserved.
 //
 
-
 #if os(iOS) || os(tvOS)
     
 import UIKit
 
 extension UIView {
     public func scaledContent(from srcScreen: Screen = .iPhone6) {
-        scaledContent(by: srcScreen.scaledWidth( value: 1))
+        scaledContent(by: srcScreen.scaledWidth())
     }
 }
 
 extension UIView {
     // Implemnted by It's subclasses
-    @objc public func scaledContent(by ratio: CGFloat) {
+    open func scaledContent(by ratio: CGFloat) {
         DefaultLogger.logger.log(#function)
     }
 }
 
 extension UILabel {
-    public override func scaledContent(by ratio: CGFloat) {
+    open override func scaledContent(by ratio: CGFloat) {
         if let scaledAttributedText = attributedText?.scaledContent(by: ratio){
             attributedText = scaledAttributedText
         }else{
@@ -35,13 +34,24 @@ extension UILabel {
 }
 
 extension UIButton {
-    public override func scaledContent(by ratio: CGFloat) {
+    open override func scaledContent(by ratio: CGFloat) {
         self.titleLabel?.scaledContent(by: ratio)
+
+        UIControlState.all.forEach {
+            // For attributed title buttons ...
+            if let attributedString = self.attributedTitle(for: $0 ) {
+                self.setAttributedTitle(attributedString.scaledContent(by: ratio), for: $0)
+            }
+            
+            if let image = self.image(for: $0 ) {
+                self.setImage(image.resize(toWidth: image.size.width * ratio ), for: $0)
+            }
+        }
     }
 }
-
+    
 extension UITextField {
-    public override func scaledContent(by ratio: CGFloat) {
+    open override func scaledContent(by ratio: CGFloat) {
         if let scaledAttributedText = attributedText?.scaledContent(by: ratio){
             attributedText = scaledAttributedText
         }else{
@@ -51,7 +61,7 @@ extension UITextField {
 }
 
 extension UITextView {
-    public override func scaledContent(by ratio: CGFloat) {
+    open override func scaledContent(by ratio: CGFloat) {
         if let scaledAttributedText = attributedText?.scaledContent(by: ratio){
             attributedText = scaledAttributedText
         }else{
@@ -60,14 +70,14 @@ extension UITextView {
     }
 }
 
-extension UISegmentedControl {
-    public override func scaledContent(by ratio: CGFloat) {
-        
-    }
+extension UIControlState {
+    public static var all: [UIControlState] = [ .normal, highlighted, disabled, selected, application, reserved ]
+    //    @available(iOS 9.0, *)
+    //    public static var focused: UIControlState { get } // Applicable
 }
 
 extension UIFont {
-    fileprivate func scaledFont(by ratio: CGFloat) -> UIFont {
+    public func scaledFont(by ratio: CGFloat) -> UIFont {
         return UIFont(name: fontName, size: pointSize * ratio)!
     }
 }
@@ -75,7 +85,7 @@ extension UIFont {
 extension NSAttributedString {
     
     open func scaledContent(from srcScreen: Screen = .iPhone6) -> NSAttributedString {
-        return scaledContent(by: srcScreen.scaledWidth( value: 1))
+        return scaledContent(by: srcScreen.scaledWidth())
     }
     
     open func scaledContent(by ratio: CGFloat) -> NSAttributedString {
@@ -89,13 +99,13 @@ extension NSAttributedString {
 extension NSMutableAttributedString {
     
     open func scaledMutableContent(from srcScreen: Screen = .iPhone6) {
-        return scaledMutableContent(by: srcScreen.scaledWidth( value: 1))
+        return scaledMutableContent(by: srcScreen.scaledWidth())
     }
     
     open func scaledMutableContent(by ratio: CGFloat) {
         beginEditing()
         enumerateAttributes(in: NSRange(location: 0, length: length), options: []) { (attributes, range, _) in
-            var styleAttributes = attributes
+            let styleAttributes = attributes
             if let font = styleAttributes[NSFontAttributeName] as? UIFont {
                 self.removeAttribute(NSFontAttributeName, range: range)
                 self.addAttribute(NSFontAttributeName, value: font.scaledFont(by: ratio), range: range)
@@ -107,7 +117,7 @@ extension NSMutableAttributedString {
                 textAttachment.image = scaledImage
             }
         }
-        self.endEditing()
+        endEditing()
     }
     
 }
@@ -125,23 +135,19 @@ extension UIImage {
     }
     
     private func internalResize(toWidth tw: CGFloat = 0, toHeight th: CGFloat = 0) -> UIImage? {
-        var w: CGFloat?
-        var h: CGFloat?
-        
+        var w: CGFloat?, h: CGFloat?
         if 0 < tw {
             h = size.height * tw / size.width
         } else if 0 < th {
             w = size.width * th / size.height
-        }
-        
-        let g: UIImage?
-        let t: CGRect = CGRect(x: 0, y: 0, width: w ?? tw, height: h ?? th)
-        UIGraphicsBeginImageContextWithOptions(t.size, false, UIScreen.main.scale)
-        draw(in: t, blendMode: .normal, alpha: 1)
-        g = UIGraphicsGetImageFromCurrentImageContext()
+        }        
+        let drawRect: CGRect = CGRect(x: 0, y: 0, width: w ?? tw, height: h ?? th)
+        UIGraphicsBeginImageContextWithOptions(drawRect.size, false, UIScreen.main.scale)
+        draw(in: drawRect, blendMode: .normal, alpha: 1)
+        let image:UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        return g
+
+        return image
     }
     
 }
