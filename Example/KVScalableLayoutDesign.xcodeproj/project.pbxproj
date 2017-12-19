@@ -7,23 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B3AB1E11F75938D00E48727 /* KVScalableLayoutKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6D11A31F72D45800507A40 /* KVScalableLayoutKit.framework */; };
 		6B3DB7071F215F5A00014076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DB7061F215F5A00014076 /* AppDelegate.swift */; };
 		6B3DB7091F215F5A00014076 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3DB7081F215F5A00014076 /* ViewController.swift */; };
 		6B3DB70C1F215F5A00014076 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DB70A1F215F5A00014076 /* Main.storyboard */; };
 		6B3DB70E1F215F5A00014076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DB70D1F215F5A00014076 /* Assets.xcassets */; };
 		6B3DB7111F215F5A00014076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3DB70F1F215F5A00014076 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6B6D11A21F72D45800507A40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6B6D119E1F72D45800507A40 /* KVScalableLayoutKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6B6D11841F72D24200507A40;
-			remoteInfo = KVScalableLayoutKit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6B3DB7031F215F5A00014076 /* KVScalableLayoutDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVScalableLayoutDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +22,7 @@
 		6B3DB70D1F215F5A00014076 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3DB7101F215F5A00014076 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3DB7121F215F5A00014076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B6D119E1F72D45800507A40 /* KVScalableLayoutKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = KVScalableLayoutKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		6B6D119E1F72D45800507A40 /* KVScalableLayoutKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KVScalableLayoutKit.xcodeproj; path = ../KVScalableLayoutKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +30,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B3AB1E11F75938D00E48727 /* KVScalableLayoutKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,14 +64,6 @@
 				6B3DB7121F215F5A00014076 /* Info.plist */,
 			);
 			path = KVScalableLayoutDesign;
-			sourceTree = "<group>";
-		};
-		6B6D119F1F72D45800507A40 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6B6D11A31F72D45800507A40 /* KVScalableLayoutKit.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,28 +113,12 @@
 			mainGroup = 6B3DB6FA1F215F5A00014076;
 			productRefGroup = 6B3DB7041F215F5A00014076 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6B6D119F1F72D45800507A40 /* Products */;
-					ProjectRef = 6B6D119E1F72D45800507A40 /* KVScalableLayoutKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6B3DB7021F215F5A00014076 /* KVScalableLayoutDesign */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6B6D11A31F72D45800507A40 /* KVScalableLayoutKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = KVScalableLayoutKit.framework;
-			remoteRef = 6B6D11A21F72D45800507A40 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6B3DB7011F215F5A00014076 /* Resources */ = {

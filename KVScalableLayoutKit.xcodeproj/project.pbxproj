@@ -38,7 +38,7 @@
 		6B6D117A1F72D24200507A40 = {
 			isa = PBXGroup;
 			children = (
-				6B6D11861F72D24200507A40 /* KVScalableLayoutKit */,
+				6B6D11861F72D24200507A40 /* Sources */,
 				6B6D11851F72D24200507A40 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,7 +51,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6B6D11861F72D24200507A40 /* KVScalableLayoutKit */ = {
+		6B6D11861F72D24200507A40 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				6B6D11871F72D24200507A40 /* KVScalableLayoutKit.h */,
@@ -61,7 +61,7 @@
 				6B6D118F1F72D25400507A40 /* KVLogger.swift */,
 				6B6D11881F72D24200507A40 /* Info.plist */,
 			);
-			path = KVScalableLayoutKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +264,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = KVScalableLayoutKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -285,7 +285,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = KVScalableLayoutKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
