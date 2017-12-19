@@ -3,4 +3,4 @@
 
 import PackageDescription
 
-let package = Package(name: "KVScalableLayoutKit", dependencies : [], exclude: ["Tests"])
+let package = Package(name: "KVScalableLayoutKit")
